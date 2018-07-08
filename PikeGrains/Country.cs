@@ -1,14 +1,14 @@
 using System.Threading.Tasks;
 using Orleans;
+using Pike.GrainInterfaces;
 
-namespace PikeGrains
+namespace Pike.Grains
 {
     /// <summary>
     /// Grain implementation class Country.
     /// </summary>
     public class Country : Grain, ICountry
     {
-        // TODO: replace placeholder grain interface with actual grain
-        // communication interface(s).
+      
     }
 }

@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using System.Collections;
 using Orleans;
+using System.Collections;
 
-namespace PikeGrainInterfaces
+namespace Pike.GrainInterfaces
 {
     /// <summary>
     /// Grain interface ICountry
