@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PikeGrains", "PikeGrains\PikeGrains.csproj", "{ADAB6E6D-5FA7-4326-8E37-F30617E8590C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PikeGrainInterfaces", "..\PikeGrainInterfaces\PikeGrainInterfaces.csproj", "{80C0EA6C-5C5A-43E4-874E-3F1DBD6A3ADA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PikeGrainInterfaces", "PikeGrainInterfaces\PikeGrainInterfaces.csproj", "{80C0EA6C-5C5A-43E4-874E-3F1DBD6A3ADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

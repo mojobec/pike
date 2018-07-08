@@ -4,10 +4,10 @@ using Orleans;
 namespace PikeGrainInterfaces
 {
     /// <summary>
-    /// Grain interface IGrain1
+    /// Grain interface IUser
     /// </summary>
-    public interface IGrain1 : IGrainWithGuidKey
+    public interface IUser : IGrainWithGuidKey
     {
-
+        Task Visit(ICountry country);
     }
 }

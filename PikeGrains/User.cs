@@ -4,10 +4,10 @@ using Orleans;
 namespace PikeGrains
 {
     /// <summary>
-    /// Grain implementation class Grain1.
+    /// Grain implementation class User.
     /// </summary>
-    public class Grain1 : Grain, IGrain1
+    public class User : Grain, IUser
     {
-
+    
     }
 }
