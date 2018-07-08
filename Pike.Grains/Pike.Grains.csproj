@@ -172,7 +172,7 @@
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PikeGrainInterfaces\Pike.GrainInterfaces.csproj">
+    <ProjectReference Include="..\Pike.GrainInterfaces\Pike.GrainInterfaces.csproj">
       <Project>{8c45d752-cf57-421f-9274-fe3a6465d9ba}</Project>
       <Name>Pike.GrainInterfaces</Name>
     </ProjectReference>

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pike.Grains", "PikeGrains\Pike.Grains.csproj", "{61113B5E-4E3C-4D14-B4D8-CFE81DE42916}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pike.Grains", "Pike.Grains\Pike.Grains.csproj", "{61113B5E-4E3C-4D14-B4D8-CFE81DE42916}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pike.GrainInterfaces", "PikeGrainInterfaces\Pike.GrainInterfaces.csproj", "{8C45D752-CF57-421F-9274-FE3A6465D9BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pike.GrainInterfaces", "Pike.GrainInterfaces\Pike.GrainInterfaces.csproj", "{8C45D752-CF57-421F-9274-FE3A6465D9BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pike.SiloHost", "PikeSiloHost\Pike.SiloHost.csproj", "{89A19738-5812-45D2-93A6-53EDADE4FC10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pike.SiloHost", "Pike.SiloHost\Pike.SiloHost.csproj", "{89A19738-5812-45D2-93A6-53EDADE4FC10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
