@@ -11,7 +11,7 @@ namespace Pike.GrainInterfaces
     public interface IUser : IGrainWithGuidKey
     {
         Task Visit(ICountry country);
-        Task<IEnumerable<ICountry>> GetVistedCountries();
+        Task<List<ICountry>> GetVistedCountries();
         Task<ICountry> GetLastVisted();
     }
 }

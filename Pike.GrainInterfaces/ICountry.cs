@@ -10,7 +10,7 @@ namespace Pike.GrainInterfaces
     /// </summary>
     public interface ICountry : IGrainWithGuidKey
     {
-        Task<IEnumerable<IUser>> GetVisitors();
+        Task<List<IUser>> GetVisitors();
         Task AddVisitor(IUser user);
     }
 }

@@ -11,22 +11,22 @@ namespace Pike.Grains
     public class User : Grain, IUser
     {
         private ICountry _lastVisted;
-        private IEnumerable<ICountry> _countries = new List<ICountry>();
+        private List<ICountry> _countries = new List<ICountry>();
 
         public Task Visit(ICountry country)
         {
             _lastVisted = country;
             _countries.Add(country);
             country.AddVisitor(this);
-            return TaskDone.Done;
+            return Task.CompletedTask;
         }
-        public Task<IEnumerable<ICountry>> GetVistedCountries()
+        public Task<List<ICountry>> GetVistedCountries()
         {
             return Task.FromResult(_countries);
         }
         public Task<ICountry> GetLastVisted()
         {
-            Task.FromResult(_lastVisted);
+            return Task.FromResult(_lastVisted);
         }
     }
 }

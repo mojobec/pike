@@ -10,16 +10,16 @@ namespace Pike.Grains
     /// </summary>
     public class Country : Grain, ICountry
     {
-        private IEnumerable<IUser> _visted = new List<IUser>();
+        private List<IUser> _visted = new List<IUser>();
 
-        public Task<IEnumerable<IUser>> GetVisitors()
+        public Task<List<IUser>> GetVisitors()
         {
-            Task.FromResult(_visted);
+           return Task.FromResult(_visted);
         }
         public Task AddVisitor(IUser user)
         {
             _visted.Add(user);
-            return TaskDone.Done;
+            return Task.CompletedTask;
         }
     }
 }
