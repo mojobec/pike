@@ -12,6 +12,8 @@ namespace Pike.Grains
     {
         private List<IUser> _visted = new List<IUser>();
 
+        public string Name => _visted.Count.ToString();
+
         public Task<List<IUser>> GetVisitors()
         {
            return Task.FromResult(_visted);

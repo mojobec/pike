@@ -1,7 +1,11 @@
 using System;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Orleans;
-using Orleans.Runtime.Configuration;
-using Orleans.Runtime.Host;
+using Orleans.Configuration;
+using Orleans.Hosting;
+using Pike.Grains;
 
 namespace Pike.SiloHost
 {
@@ -10,33 +14,47 @@ namespace Pike.SiloHost
     /// </summary>
     public class Program
     {
-        static void Main(string[] args)
+        public static int Main(string[] args)
         {
-            // First, configure and start a local silo
-            var siloConfig = ClusterConfiguration.LocalhostPrimarySilo();
-            var silo = new Orleans.Runtime.Host.SiloHost("TestSilo", siloConfig);
-            silo.InitializeOrleansSilo();
-            silo.StartOrleansSilo();
+            return RunMainAsync().Result;
+        }
 
-            Console.WriteLine("Silo started.");
+        private static async Task<int> RunMainAsync()
+        {
+            try
+            {
+                var host = await StartSilo();
+                Console.WriteLine("Press Enter to terminate...");
+                Console.ReadLine();
 
-            // Then configure and connect a client.
-            var clientConfig = ClientConfiguration.LocalhostSilo();
-            var client = new ClientBuilder().UseConfiguration(clientConfig).Build();
-            client.Connect().Wait();
+                await host.StopAsync();
 
-            Console.WriteLine("Client connected.");
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return 1;
+            }
+        }
+        public static async Task<ISiloHost> StartSilo()
+        {
+            // define the cluster configuration
+            var builder = new SiloHostBuilder()
+               .UseLocalhostClustering()
+                .Configure<ClusterOptions>(options =>
+                {
+                    options.ClusterId = "dev";
+                    options.ServiceId = "HelloWorldApp";
+                })
+                .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
+                .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(User).Assembly).WithReferences())
+                                .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(Country).Assembly).WithReferences())
+                .ConfigureLogging(logging => logging.AddConsole());
 
-            //
-            // This is the place for your test code.
-            //
-
-            Console.WriteLine("\nPress Enter to terminate...");
-            Console.ReadLine();
-
-            // Shut down
-            client.Close();
-            silo.ShutdownOrleansSilo();
+            var host = builder.Build();
+            await host.StartAsync();
+            return host;
         }
     }
 }
